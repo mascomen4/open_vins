@@ -45,6 +45,11 @@ class State;
 class StateHelper {
 
 public:
+//    static inline  getPosState(){
+//
+//    }
+
+
   /**
    * @brief Performs EKF propagation of the state covariance.
    *

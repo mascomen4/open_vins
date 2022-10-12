@@ -28,6 +28,23 @@
 
 namespace ov_core {
 
+/// Struct for a single GPS measurement (x, y, z)
+struct GPSData {
+    // Added by Podmogilnyi Ivan
+    /// Timestamp of the reading
+    double timestamp;
+
+    /// XYZ position
+    Eigen::Matrix<double, 3, 1> pos;
+
+    /// Position covariance
+    Eigen::Matrix<double, 1, 9> posCov;
+
+    /// Sort function to allow for using of STL containers
+    bool operator<(const GPSData &other) const {return timestamp < other.timestamp; }
+
+};
+
 /**
  * @brief Struct for a single imu measurement (time, wm, am)
  */

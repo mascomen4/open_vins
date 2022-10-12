@@ -68,6 +68,8 @@ public:
    */
   VioManager(VioManagerOptions &params_);
 
+  static void feed_measurement_gps(ov_core::GPSData & message);
+
   /**
    * @brief Feed function for inertial data
    * @param message Contains our timestamp and inertial information

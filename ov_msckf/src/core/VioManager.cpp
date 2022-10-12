@@ -42,10 +42,18 @@
 #include "update/UpdaterMSCKF.h"
 #include "update/UpdaterSLAM.h"
 #include "update/UpdaterZeroVelocity.h"
+#include "update/UpdaterGPS.h"
 
 using namespace ov_core;
 using namespace ov_type;
 using namespace ov_msckf;
+
+
+void VioManager::feed_measurement_gps(GPSData &message) {
+    // Added by Ivan Podmogilnyi aka mascomen4 or slwpoke
+    UpdaterGPS gpsUpdater;
+    gpsUpdater.update(state, message);
+}
 
 VioManager::VioManager(VioManagerOptions &params_) : thread_init_running(false), thread_init_success(false) {
 
